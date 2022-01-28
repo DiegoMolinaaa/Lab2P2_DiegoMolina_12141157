@@ -82,6 +82,11 @@ public class Lab2P2_DiegoMolina_12141157 {
         String disGeo = lea.nextLine();
         System.out.print("Ingrese la vida: ");
         int vida = lea.nextInt();
+        while(vida<1){
+            System.out.println("Debe de ingresar un numero mayor a 0");
+            System.out.print("Vida: ");
+            vida = lea.nextInt();
+        }
         registro.add(new Animales(nomCientifico, nomComun, habitat, alimentacion, rasgos, disGeo, vida));
     }    
     public static void editarAnimal(){
@@ -127,42 +132,61 @@ public class Lab2P2_DiegoMolina_12141157 {
         int opcion = lea.nextInt();
         if(opcion == 1){
             System.out.print("Nombre Cientifico: ");
+            lea.nextLine();
             registro.get(pos).setNomCientifico(lea.nextLine());
         }else if(opcion == 2){
             System.out.print("Nombre Comun: ");
+            lea.nextLine();
             registro.get(pos).setNomComun(lea.nextLine());
         }else if(opcion == 3){
             System.out.print("Habitat: ");
+            lea.nextLine();
             registro.get(pos).setHabitat(lea.nextLine());
         }else if(opcion == 4){
-            System.out.println("Alimentacion: ");
+            System.out.print("Alimentacion: ");
+            lea.nextLine();
             registro.get(pos).setAlimentacion(lea.nextLine());
         }else if(opcion == 5){
             System.out.print("Descripcion de Rasgos: ");
+            lea.nextLine();
             registro.get(pos).setDescripRasgos(lea.nextLine());
         }else if(opcion == 6){
             System.out.print("Distribuicion Geografica: ");
+            lea.nextLine();
             registro.get(pos).setDistrGeo(lea.nextLine());
         }else if(opcion == 7){
-            System.out.println("Vida: ");
-            registro.get(pos).setVida(lea.nextInt());
+            System.out.print("Vida: ");
+            int vida = lea.nextInt();
+            while(vida<1){
+                System.out.println("Debe de ingresar un numero mayor a 0");
+                System.out.print("Vida: ");
+                vida = lea.nextInt();
+            }
+            registro.get(pos).setVida(vida);
         }
     }
     public static void editarTodo(int pos){
         System.out.print("Nombre Cientifico: ");
+        lea.nextLine();
         registro.get(pos).setNomCientifico(lea.nextLine());
         System.out.print("Nombre Comun: ");
         registro.get(pos).setNomComun(lea.nextLine());
         System.out.print("Habitat: ");
         registro.get(pos).setHabitat(lea.nextLine());
-        System.out.println("Alimentacion: ");
+        System.out.print("Alimentacion: ");
         registro.get(pos).setAlimentacion(lea.nextLine());
         System.out.print("Descripcion de Rasgos: ");
         registro.get(pos).setDescripRasgos(lea.nextLine());
         System.out.print("Distribuicion Geografica: ");
         registro.get(pos).setDistrGeo(lea.nextLine());
-        System.out.println("Vida: ");
-        registro.get(pos).setVida(lea.nextInt());
+        System.out.print("Vida: ");
+        int vida = lea.nextInt();
+        while(vida<1){
+            System.out.println("Debe de ingresar un numero mayor a 0");
+            System.out.print("Vida: ");
+            vida = lea.nextInt();
+        }
+        registro.get(pos).setVida(vida);
             
     }
     public static void eliminarAnimal(){
@@ -210,7 +234,12 @@ public class Lab2P2_DiegoMolina_12141157 {
     public static void listarPosicion(){
         System.out.print("Ingrese una posicion (0 a "+(registro.size()-1)+"): ");
         int pos = lea.nextInt();
-            System.out.print(pos+" -> "+registro.get(pos));
+        while(pos<0 || pos>registro.size()-1){
+            System.out.println("Debe de ingresar un numero entre 0 a "+(registro.size()-1));
+            System.out.print("Ingrese una posicion [0 a "+(registro.size()-1)+"]: ");
+            pos = lea.nextInt();
+        }
+        System.out.print(pos+" -> "+registro.get(pos));
     }
     public static void listarTodos(){
         for (Animales animales : registro) {
@@ -230,12 +259,28 @@ public class Lab2P2_DiegoMolina_12141157 {
     public static void cadenaAlimenticia(){
         System.out.print("Ingrese la posicion del animal que comera [0 a "+(registro.size()-1)+"]: ");
         int pos = lea.nextInt();
+        while(pos<0 || pos>registro.size()-1){
+            System.out.println("Debe de ingresar un numero entre 0 a "+(registro.size()-1));
+            System.out.print("Ingrese la posicion del animal que comera [0 a "+(registro.size()-1)+"]: ");
+            pos = lea.nextInt();
+        }
         System.out.print("Ingrese la posicion del animal que sera comido [0 a "+(registro.size()-1)+"]: ");
         int pos2 = lea.nextInt();
+        while(pos2<0 || pos2>registro.size()-1){
+            System.out.println("Debe de ingresar un numero entre 0 a "+(registro.size()-1));
+            System.out.print("Ingrese la posicion del animal que comera [0 a "+(registro.size()-1)+"]: ");
+            pos2 = lea.nextInt();
+        }
+        while(pos==pos2){
+            System.out.println("Debe de ingresar una segunda posicion diferente");
+            System.out.print("Ingrese la posicion del animal que sera comido [0 a "+(registro.size()-1)+"]: ");
+            pos2 = lea.nextInt();
+        }
         System.out.println("El "+registro.get(pos).getNomComun()+" se comera al "+registro.get(pos2).getNomComun());
         int vida = registro.get(pos).getVida()+registro.get(pos2).getVida();
         registro.get(pos).setVida(vida);
         registro.remove(pos2);
+        System.out.println("");
         System.out.println("Se ha realizado exitosamente la alimentacion");
     }
 }
