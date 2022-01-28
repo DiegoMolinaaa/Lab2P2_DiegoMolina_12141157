@@ -86,5 +86,10 @@ public class Animales {
     public void setVida(int vida) {
         this.vida = vida;
     }
+
+    @Override
+    public String toString() {
+        return "Animales{" + "nomCientifico=" + nomCientifico + ", nomComun=" + nomComun + ", habitat=" + habitat + ", alimentacion=" + alimentacion + ", descripRasgos=" + descripRasgos + ", distrGeo=" + distrGeo + ", vida=" + vida + '}';
+    }
     
 }
