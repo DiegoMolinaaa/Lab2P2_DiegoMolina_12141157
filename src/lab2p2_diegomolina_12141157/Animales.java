@@ -17,4 +17,18 @@ public class Animales {
     private String descripRasgos;
     private String distrGeo;
     private int vida;
+
+    public Animales() {
+    }
+
+    public Animales(String nomCientifico, String nomComun, String habitat, String alimentacion, String descripRasgos, String distrGeo, int vida) {
+        this.nomCientifico = nomCientifico;
+        this.nomComun = nomComun;
+        this.habitat = habitat;
+        this.alimentacion = alimentacion;
+        this.descripRasgos = descripRasgos;
+        this.distrGeo = distrGeo;
+        this.vida = vida;
+    }
+    
 }
