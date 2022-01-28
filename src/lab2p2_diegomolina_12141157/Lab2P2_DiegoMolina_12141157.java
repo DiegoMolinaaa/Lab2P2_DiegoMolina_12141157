@@ -46,10 +46,11 @@ public class Lab2P2_DiegoMolina_12141157 {
                 System.out.println("");
             }
             if(opcion==2){
-                
+                editarAnimal();
+                System.out.println("");
             }
             if(opcion==3){
-                
+                eliminarAnimal();
             }
             if(opcion==4){
                 listarAnimal();
@@ -82,7 +83,107 @@ public class Lab2P2_DiegoMolina_12141157 {
         registro.add(new Animales(nomCientifico, nomComun, habitat, alimentacion, rasgos, disGeo, vida));
     }    
     public static void editarAnimal(){
-    
+        System.out.print("Ingrese el nombre Cientifico del Animal a Editar: ");
+        lea.nextLine();
+        String nom = lea.nextLine();
+        int pos=0;
+        boolean sePuede=false;
+        for (Animales animales : registro) {
+            if(nom.equalsIgnoreCase(animales.getNomCientifico())){
+                sePuede=true;
+                pos = (registro.indexOf(animales));
+                break;
+            }
+        }
+        if(sePuede==true){
+            System.out.println("1) Editar un Atributo ");
+            System.out.println("2) Editar Todo");
+            System.out.print("Ingrese una opcion: ");
+            int op = lea.nextInt();
+            if(op==1){
+                editarAtributo(pos);
+                System.out.println("El atributo se ha modificado exitosamente");
+            }
+            else if(op==2){
+                editarTodo(pos);
+                System.out.println("Los atributos se han modificado exitosamente");
+            }
+            else{
+                System.out.println("Debe de ingresar un nombre valido");
+            }
+        }
+    }
+    public static void editarAtributo(int pos){
+        System.out.println("1. Nombre Cientifico");
+        System.out.println("2. Nombre Comun");
+        System.out.println("3. Habitat");
+        System.out.println("4. Alimentacion");
+        System.out.println("5. Descripcion de Rasgos");
+        System.out.println("6. Distribuicion Geografica");
+        System.out.println("7. Vida");
+        System.out.print("Ingrese la opcion: ");
+        int opcion = lea.nextInt();
+        if(opcion == 1){
+            System.out.print("Nombre Cientifico: ");
+            registro.get(pos).setNomCientifico(lea.nextLine());
+        }else if(opcion == 2){
+            System.out.print("Nombre Comun: ");
+            registro.get(pos).setNomComun(lea.nextLine());
+        }else if(opcion == 3){
+            System.out.print("Habitat: ");
+            registro.get(pos).setHabitat(lea.nextLine());
+        }else if(opcion == 4){
+            System.out.println("Alimentacion: ");
+            registro.get(pos).setAlimentacion(lea.nextLine());
+        }else if(opcion == 5){
+            System.out.print("Descripcion de Rasgos: ");
+            registro.get(pos).setDescripRasgos(lea.nextLine());
+        }else if(opcion == 6){
+            System.out.print("Distribuicion Geografica: ");
+            registro.get(pos).setDistrGeo(lea.nextLine());
+        }else if(opcion == 7){
+            System.out.println("Vida: ");
+            registro.get(pos).setVida(lea.nextInt());
+        }
+    }
+    public static void editarTodo(int pos){
+        System.out.print("Nombre Cientifico: ");
+        registro.get(pos).setNomCientifico(lea.nextLine());
+        System.out.print("Nombre Comun: ");
+        registro.get(pos).setNomComun(lea.nextLine());
+        System.out.print("Habitat: ");
+        registro.get(pos).setHabitat(lea.nextLine());
+        System.out.println("Alimentacion: ");
+        registro.get(pos).setAlimentacion(lea.nextLine());
+        System.out.print("Descripcion de Rasgos: ");
+        registro.get(pos).setDescripRasgos(lea.nextLine());
+        System.out.print("Distribuicion Geografica: ");
+        registro.get(pos).setDistrGeo(lea.nextLine());
+        System.out.println("Vida: ");
+        registro.get(pos).setVida(lea.nextInt());
+            
+    }
+    public static void eliminarAnimal(){
+        System.out.print("Ingrese el nombre Cientifico del Animal a Eliminar: ");
+        lea.nextLine();
+        String nom = lea.nextLine();
+        int pos=0;
+        boolean sePuede=false;
+        for (Animales animales : registro) {
+            if(nom.equalsIgnoreCase(animales.getNomCientifico())){
+                sePuede=true;
+                pos = (registro.indexOf(animales));
+                break;
+            }
+        }
+        if(sePuede==true){
+            registro.remove(pos);
+            System.out.println("El animal se ha eliminado exitosamente");
+        }
+        else{
+            System.out.println("Debe de Ingresar un Nombre Cientifico Valido");
+        }
+        
     }
     public static void listarAnimal(){
         System.out.println("1) Listar por Posicion");
