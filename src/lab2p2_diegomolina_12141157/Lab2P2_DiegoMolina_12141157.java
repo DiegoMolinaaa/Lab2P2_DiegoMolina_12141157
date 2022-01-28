@@ -51,13 +51,15 @@ public class Lab2P2_DiegoMolina_12141157 {
             }
             if(opcion==3){
                 eliminarAnimal();
+                System.out.println("");
             }
             if(opcion==4){
                 listarAnimal();
                 System.out.println("");
             }
             if(opcion==5){
-                
+                cadenaAlimenticia();
+                System.out.println("");
             }
             if(opcion==6){
                 System.exit(0);
@@ -224,5 +226,16 @@ public class Lab2P2_DiegoMolina_12141157 {
                 System.out.print(registro.indexOf(animales)+" -> "+animales.toString());
             }
         }
+    }
+    public static void cadenaAlimenticia(){
+        System.out.print("Ingrese la posicion del animal que comera [0 a "+(registro.size()-1)+"]: ");
+        int pos = lea.nextInt();
+        System.out.print("Ingrese la posicion del animal que sera comido [0 a "+(registro.size()-1)+"]: ");
+        int pos2 = lea.nextInt();
+        System.out.println("El "+registro.get(pos).getNomComun()+" se comera al "+registro.get(pos2).getNomComun());
+        int vida = registro.get(pos).getVida()+registro.get(pos2).getVida();
+        registro.get(pos).setVida(vida);
+        registro.remove(pos2);
+        System.out.println("Se ha realizado exitosamente la alimentacion");
     }
 }
