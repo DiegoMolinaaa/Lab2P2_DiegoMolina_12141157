@@ -30,5 +30,61 @@ public class Animales {
         this.distrGeo = distrGeo;
         this.vida = vida;
     }
+
+    public String getNomCientifico() {
+        return nomCientifico;
+    }
+
+    public void setNomCientifico(String nomCientifico) {
+        this.nomCientifico = nomCientifico;
+    }
+
+    public String getNomComun() {
+        return nomComun;
+    }
+
+    public void setNomComun(String nomComun) {
+        this.nomComun = nomComun;
+    }
+
+    public String getHabitat() {
+        return habitat;
+    }
+
+    public void setHabitat(String habitat) {
+        this.habitat = habitat;
+    }
+
+    public String getAlimentacion() {
+        return alimentacion;
+    }
+
+    public void setAlimentacion(String alimentacion) {
+        this.alimentacion = alimentacion;
+    }
+
+    public String getDescripRasgos() {
+        return descripRasgos;
+    }
+
+    public void setDescripRasgos(String descripRasgos) {
+        this.descripRasgos = descripRasgos;
+    }
+
+    public String getDistrGeo() {
+        return distrGeo;
+    }
+
+    public void setDistrGeo(String distrGeo) {
+        this.distrGeo = distrGeo;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
     
 }
